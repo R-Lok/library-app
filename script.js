@@ -4,6 +4,7 @@ const bookContainer = document.querySelector(".book-library")
 const submitBookBtn = document.querySelector(".submitBook")
 const formPopup = document.querySelector(".form-popup")
 const pageCover = document.querySelector(".cover")
+let deleteBookBtns = document.querySelectorAll(".remove-book-button")
 let bookLibrary = []
 let bookId = 0 
 
@@ -26,6 +27,14 @@ function addBooktoLibrary() {
     bookLibrary.push(newBook)
     resetAndCloseForm()
     addBookCard()
+    updateRemoveBookButtons()
+}
+
+function updateRemoveBookButtons() {
+    deleteBookBtns = document.querySelectorAll(".remove-book-button")
+    deleteBookBtns.forEach(node => node.addEventListener('click', function(e) {
+        e.target.parentElement.remove()
+    }))
 }
 
 function addBookCard() {
@@ -44,10 +53,14 @@ function addBookCard() {
             } else {
                 haveRead.innerText = 'Not read'
             }
+            let deleteBook = document.createElement('button')
+            deleteBook.innerText = 'Remove'
             newCard.setAttribute('bookId', bookLibrary[i].bookId)
             newCard.classList.add('bookCard')
+            haveRead.classList.add('book-read-status')
+            deleteBook.classList.add('remove-book-button')
             bookContainer.appendChild(newCard)
-            newCard.append(title, author, pages, haveRead)
+            newCard.append(title, author, pages, haveRead, deleteBook)
         }
     }
 }
@@ -75,7 +88,7 @@ function showForm() {
 }
 
 //for development purposes, will delete in final version
-document.addEventListener('click', function(e) {
-    console.log(e)
-    console.log(e.target)
-})
+// document.addEventListener('click', function(e) {
+//     console.log(e)
+//     console.log(e.target)
+// })
