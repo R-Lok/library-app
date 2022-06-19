@@ -45,3 +45,32 @@ header {
 .book-library > .addBook:hover {
     background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0 0);
 }
+
+.form-container {
+    background: white;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    box-shadow: 0 0 1px black;
+    padding: 20px;
+    border-radius: 5px;
+    display: none;
+    transition: ease-in 20ms;
+}
+
+form {
+    display: grid;
+    grid-template: 1fr 1fr 1fr auto / 1fr;
+    gap: 20px;
+}
+
+form > div {
+    display: grid;
+    grid-template: 1fr / 1fr 1fr;
+}
+
+form button {
+    padding: 5px;
+}
