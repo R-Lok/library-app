@@ -24,13 +24,13 @@ header {
     background: rgb(232, 232, 232);
     grid-area: content;
     padding: 20px;
+    display: grid;
+    grid-template: 250px / repeat(auto-fit, minmax(300px, 1fr)); 
 }
 
 .book-library > div, .addBook {
     border: 2px solid black;
     border-radius: 10px;
-    height: 250px;
-    width: 300px;
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -40,6 +40,7 @@ header {
 
 .book-library > .addBook {
     cursor: pointer;
+    order: 99999;
 }
 
 .book-library > .addBook:hover {

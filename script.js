@@ -1,18 +1,60 @@
 
-let addBookBtn = document.querySelector(".addBook")
-let formPopup = document.querySelector(".form-popup")
-let pageCover = document.querySelector(".cover")
+const addBookBtn = document.querySelector(".addBook")
+const bookContainer = document.querySelector(".book-library")
+const submitBookBtn = document.querySelector(".submitBook")
+const formPopup = document.querySelector(".form-popup")
+const pageCover = document.querySelector(".cover")
 let bookLibrary = []
+let bookId = 0 
 
-function book(title, author, pages, haveRead) {
+submitBookBtn.addEventListener('click', addBooktoLibrary)
+
+function Book(title, author, pages, haveRead) {
     this.title = title
     this.author = author
     this.pages = pages
     this.haveRead = haveRead
+    this.bookId = bookId++
 }
 
 function addBooktoLibrary() {
-    
+    let title = document.querySelector("#bookName").value
+    let author = document.querySelector("#author").value
+    let pages = document.querySelector("#pages").value
+    let haveRead = document.querySelector("#haveRead").value
+    let newBook = new Book(title, author, pages, haveRead)
+    bookLibrary.push(newBook)
+    resetAndCloseForm()
+    addBookCard()
+}
+
+function addBookCard() {
+    for (i = 0; i < bookLibrary.length; i++) {
+        if (document.querySelector(`[bookId="${i}"]`) === null) {
+            let newCard = document.createElement('div')
+            let title = document.createElement('p')
+            title.innerText = bookLibrary[i].title
+            let author = document.createElement('p')
+            author.innerText = bookLibrary[i].author
+            let pages = document.createElement('p')
+            pages.innerText = bookLibrary[i].pages
+            let haveRead = document.createElement('button')
+            if (bookLibrary[i].haveRead === "on") {
+                haveRead.innerText = 'Read'
+            } else {
+                haveRead.innerText = 'Not read'
+            }
+            newCard.setAttribute('bookId', bookLibrary[i].bookId)
+            newCard.classList.add('bookCard')
+            bookContainer.appendChild(newCard)
+            newCard.append(title, author, pages, haveRead)
+        }
+    }
+}
+
+function resetAndCloseForm() {
+    document.querySelector('form').reset()
+    formPopup.style.display = 'none'
 }
 
 addBookBtn.addEventListener('click', showForm)
