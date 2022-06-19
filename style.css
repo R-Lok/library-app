@@ -82,7 +82,12 @@ form {
 
 form > div {
     display: grid;
-    grid-template: 1fr / 1fr 1fr;
+    grid-template: 1fr / 1fr 142.5px;
+    align-items: center;
+}
+
+input[type="checkbox"] {
+    justify-self: center;
 }
 
 form button {
