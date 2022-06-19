@@ -9,9 +9,6 @@ function book(title, author, pages, haveRead) {
     this.author = author
     this.pages = pages
     this.haveRead = haveRead
-    this.info = function() {
-        return `${this.title} by ${this.author}, ${this.pages} pages, ${haveRead}`
-    }
 }
 
 function addBooktoLibrary() {
