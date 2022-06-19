@@ -8,7 +8,6 @@ function book(title, author, pages, haveRead) {
     this.info = function() {
         return `${this.title} by ${this.author}, ${this.pages} pages, ${haveRead}`
     }
-    console.log(this.info())
 }
 
 function addBooktoLibrary() {

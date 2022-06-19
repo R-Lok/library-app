@@ -1,9 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main-container {
+    height: 100vh;
+    display: grid;
+    grid-template: min-content 1fr / 1fr;
+    grid-template-areas: "header"
+                         "content";
+}
+
+header {
+    padding: 20px;
+    grid-area: header;
 }
 
 .book-library {
     background: rgb(232, 232, 232);
+    grid-area: content;
+    padding: 20px;
+}
+
+.book-library > div, .addBook {
+    border: 2px solid black;
+    border-radius: 10px;
+    height: 250px;
+    width: 300px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+
+.book-library > .addBook {
+    cursor: pointer;
+}
+
+.book-library > .addBook:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0 0);
 }
