@@ -47,7 +47,7 @@ function addBookCard() {
             let author = document.createElement('p')
             author.innerText = bookLibrary[i].author
             let pages = document.createElement('p')
-            pages.innerText = bookLibrary[i].pages
+            pages.innerText = `${bookLibrary[i].pages} pages`
             let haveRead = document.createElement('button')
             if (bookLibrary[i].haveRead === true) {
                 haveRead.innerText = 'Read'
