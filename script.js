@@ -5,8 +5,16 @@ const submitBookBtn = document.querySelector(".submitBook")
 const formPopup = document.querySelector(".form-popup")
 const pageCover = document.querySelector(".cover")
 let deleteBookBtns = document.querySelectorAll(".remove-book-button")
-let bookLibrary = []
-let bookId = 0 
+let bookId = 1 
+let sampleBook = {
+    title: "Green Eggs and Ham",
+    author: "Dr. Seuss",
+    pages: "72",
+    haveRead: "on",
+    bookId: 0
+}
+let bookLibrary = [sampleBook]
+addBookCard()
 
 submitBookBtn.addEventListener('click', addBooktoLibrary)
 

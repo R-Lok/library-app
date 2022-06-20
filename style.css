@@ -40,6 +40,17 @@ header {
     background: white;
 }
 
+.book-library > div {
+    display: grid;
+    grid-template: 1fr 1fr 1fr auto auto / 1fr;
+    justify-items: center;
+    gap: 20px;
+}
+
+.book-library > div > button {
+    width: 50%;
+}
+
 .book-library > .addBook {
     cursor: pointer;
     order: 99999;
