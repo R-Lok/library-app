@@ -45,7 +45,7 @@ function addBooktoLibrary() {
 
 function addBookCard() {
     for (i = 0; i < bookLibrary.length; i++) {
-        if (document.querySelector(`[book-id="${i}"]`) === null) {
+        if (document.querySelector(`[book-id="${bookLibrary[i].bookId}"]`) === null) {
             let newCard = document.createElement('div')
             let title = document.createElement('p')
             title.innerText = bookLibrary[i].title
