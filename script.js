@@ -30,7 +30,7 @@ function addBooktoLibrary() {
     let title = document.querySelector("#bookName").value
     let author = document.querySelector("#author").value
     let pages = document.querySelector("#pages").value
-    let haveRead = document.querySelector("#haveRead").value
+    let haveRead = document.querySelector("#haveRead").checked
     let newBook = new Book(title, author, pages, haveRead)
     bookLibrary.push(newBook)
     resetAndCloseForm()
@@ -48,7 +48,7 @@ function addBookCard() {
             let pages = document.createElement('p')
             pages.innerText = bookLibrary[i].pages
             let haveRead = document.createElement('button')
-            if (bookLibrary[i].haveRead === "on") {
+            if (bookLibrary[i].haveRead === true) {
                 haveRead.innerText = 'Read'
             } else {
                 haveRead.innerText = 'Not read'
