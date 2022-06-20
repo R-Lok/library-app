@@ -32,10 +32,15 @@ function addBooktoLibrary() {
     let author = document.querySelector("#author").value
     let pages = document.querySelector("#pages").value
     let haveRead = document.querySelector("#haveRead").checked
-    let newBook = new Book(title, author, pages, haveRead)
-    bookLibrary.push(newBook)
-    resetAndCloseForm()
-    addBookCard()
+    if (title === "" || author === "" || pages === "") {
+        alert("'Book Name', 'Author' and 'No. of Pages' fields must be filled in.")
+    } else {
+        let newBook = new Book(title, author, pages, haveRead)
+        bookLibrary.push(newBook)
+        resetAndCloseForm()
+        addBookCard()
+    }
+    
 }
 
 function addBookCard() {
