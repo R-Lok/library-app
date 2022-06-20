@@ -66,6 +66,14 @@ header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0 0);
 }
 
+.book-library .read {
+    background: rgb(196, 236, 137)
+}
+
+.book-library .not-read {
+    background: rgb(255, 177, 177)
+}
+
 .book-library > .addBook {
     cursor: pointer;
     order: 99999;

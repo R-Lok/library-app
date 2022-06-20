@@ -18,6 +18,7 @@ addBookCard()
 
 submitBookBtn.addEventListener('click', addBooktoLibrary)
 
+
 function Book(title, author, pages, haveRead) {
     this.title = title
     this.author = author
@@ -50,8 +51,10 @@ function addBookCard() {
             let haveRead = document.createElement('button')
             if (bookLibrary[i].haveRead === true) {
                 haveRead.innerText = 'Read'
+                haveRead.classList.add('read')
             } else {
                 haveRead.innerText = 'Not read'
+                haveRead.classList.add('not-read')
             }
             let deleteBook = document.createElement('button')
             deleteBook.innerText = 'Remove'
@@ -65,9 +68,22 @@ function addBookCard() {
                 bookLibrary.splice(currentBookIndex, 1)
                 e.target.parentElement.remove()
             })
+            haveRead.addEventListener('click', changeReadStatus)
             bookContainer.appendChild(newCard)
             newCard.append(title, author, pages, haveRead, deleteBook)
         }
+    }
+}
+
+function changeReadStatus() {
+    if (this.classList.contains('read')) {
+        this.innerText = "Not Read"
+        this.classList.add('not-read')
+        this.classList.remove('read')
+    } else {
+        this.innerText = "Read"
+        this.classList.add('read')
+        this.classList.remove('not-read')
     }
 }
 
