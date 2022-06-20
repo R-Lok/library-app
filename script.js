@@ -27,19 +27,11 @@ function addBooktoLibrary() {
     bookLibrary.push(newBook)
     resetAndCloseForm()
     addBookCard()
-    updateRemoveBookButtons()
-}
-
-function updateRemoveBookButtons() {
-    deleteBookBtns = document.querySelectorAll(".remove-book-button")
-    deleteBookBtns.forEach(node => node.addEventListener('click', function(e) {
-        e.target.parentElement.remove()
-    }))
 }
 
 function addBookCard() {
     for (i = 0; i < bookLibrary.length; i++) {
-        if (document.querySelector(`[bookId="${i}"]`) === null) {
+        if (document.querySelector(`[book-id="${i}"]`) === null) {
             let newCard = document.createElement('div')
             let title = document.createElement('p')
             title.innerText = bookLibrary[i].title
@@ -55,10 +47,16 @@ function addBookCard() {
             }
             let deleteBook = document.createElement('button')
             deleteBook.innerText = 'Remove'
-            newCard.setAttribute('bookId', bookLibrary[i].bookId)
+            newCard.setAttribute('book-id', bookLibrary[i].bookId)
             newCard.classList.add('bookCard')
             haveRead.classList.add('book-read-status')
             deleteBook.classList.add('remove-book-button')
+            deleteBook.addEventListener('click', function(e) {
+                let currentBookId = parseInt(e.target.parentElement.getAttribute('book-id'))
+                let currentBookIndex = bookLibrary.map(element => element.bookId).indexOf(currentBookId)
+                bookLibrary.splice(currentBookIndex, 1)
+                e.target.parentElement.remove()
+            })
             bookContainer.appendChild(newCard)
             newCard.append(title, author, pages, haveRead, deleteBook)
         }
