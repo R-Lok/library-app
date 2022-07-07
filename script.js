@@ -18,13 +18,14 @@ addBookCard()
 
 submitBookBtn.addEventListener('click', addBooktoLibrary)
 
-
-function Book(title, author, pages, haveRead) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.haveRead = haveRead
-    this.bookId = bookId++
+class Book {
+    constructor(title, author, pages, haveRead) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.haveRead = haveRead
+        this.bookId = bookId++
+    }
 }
 
 function addBooktoLibrary() {
@@ -113,9 +114,3 @@ function showForm() {
         formPopup.style.display = 'block'
     }
 }
-
-//for development purposes, will delete in final version
-// document.addEventListener('click', function(e) {
-//     console.log(e)
-//     console.log(e.target)
-// })
